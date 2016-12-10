@@ -11,6 +11,6 @@
       location = "group:samples/ORKCatalog/ORKCatalog.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:samples/ORKSample/ORKSample.xcodeproj">
+      location = "group:/Users/faraz/Repos/ResearchKit/samples/ORKSample/BiAffect.xcodeproj">
    </FileRef>
 </Workspace>

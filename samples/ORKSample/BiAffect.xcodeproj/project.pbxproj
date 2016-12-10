@@ -11,8 +11,8 @@
 		161479C91BD6CE8F0099A068 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 161479C71BD6CE8F0099A068 /* Main.storyboard */; };
 		161479CB1BD6CE8F0099A068 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 161479CA1BD6CE8F0099A068 /* Assets.xcassets */; };
 		161479CE1BD6CE8F0099A068 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 161479CC1BD6CE8F0099A068 /* LaunchScreen.storyboard */; };
-		16147A0F1BD83F700099A068 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16147A0E1BD83F700099A068 /* ActivityViewController.swift */; };
-		165A7E661BD99DBA00B6D223 /* StudyTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A7E651BD99DBA00B6D223 /* StudyTasks.swift */; };
+		16147A0F1BD83F700099A068 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16147A0E1BD83F700099A068 /* TaskListViewController.swift */; };
+		165A7E661BD99DBA00B6D223 /* TaskListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A7E651BD99DBA00B6D223 /* TaskListRow.swift */; };
 		165A7E6E1BD9AEF800B6D223 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A7E6D1BD9AEF800B6D223 /* IntroductionViewController.swift */; };
 		16BF5B691BE2974A007C79C6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BF5B681BE2974A007C79C6 /* ProfileViewController.swift */; };
 		16BF5B6F1BE2BE77007C79C6 /* HealthClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BF5B6E1BE2BE77007C79C6 /* HealthClientType.swift */; };
@@ -34,6 +34,7 @@
 		BC2A3CA51C58E91E00DA64B7 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2A3CA41C58E91E00DA64B7 /* HealthKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		BC2A3CDD1C58F1DB00DA64B7 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2A3CDC1C58F1DB00DA64B7 /* ResearchKit.framework */; };
 		BC2A3CDE1C58F1DB00DA64B7 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BC2A3CDC1C58F1DB00DA64B7 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D02C417C1DFC7DD600A7C1B9 /* tap.aif in Resources */ = {isa = PBXBuildFile; fileRef = D02C417B1DFC7DD600A7C1B9 /* tap.aif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,15 +52,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		161479C01BD6CE8F0099A068 /* ORKSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ORKSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		161479C01BD6CE8F0099A068 /* BiAffect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiAffect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		161479C31BD6CE8F0099A068 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ORKSample/AppDelegate.swift; sourceTree = "<group>"; };
 		161479C51BD6CE8F0099A068 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnboardingViewController.swift; path = ORKSample/OnboardingViewController.swift; sourceTree = "<group>"; };
 		161479C81BD6CE8F0099A068 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		161479CA1BD6CE8F0099A068 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ORKSample/Assets.xcassets; sourceTree = "<group>"; };
 		161479CD1BD6CE8F0099A068 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		161479CF1BD6CE8F0099A068 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = ORKSample/Info.plist; sourceTree = "<group>"; };
-		16147A0E1BD83F700099A068 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityViewController.swift; path = ORKSample/ActivityViewController.swift; sourceTree = "<group>"; };
-		165A7E651BD99DBA00B6D223 /* StudyTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StudyTasks.swift; path = ORKSample/StudyTasks.swift; sourceTree = "<group>"; };
+		16147A0E1BD83F700099A068 /* TaskListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskListViewController.swift; path = ORKSample/TaskListViewController.swift; sourceTree = "<group>"; };
+		165A7E651BD99DBA00B6D223 /* TaskListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskListRow.swift; path = ORKSample/TaskListRow.swift; sourceTree = "<group>"; };
 		165A7E6D1BD9AEF800B6D223 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroductionViewController.swift; path = ORKSample/IntroductionViewController.swift; sourceTree = "<group>"; };
 		168F256F1BE03541001D2D65 /* ORKSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = ORKSample.entitlements; path = ORKSample/ORKSample.entitlements; sourceTree = "<group>"; };
 		168F25711BE052AD001D2D65 /* HealthDataStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthDataStepViewController.swift; path = ORKSample/HealthDataStepViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		B5FA92E81BF13D98001E46C0 /* HealthDataStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthDataStep.swift; path = ORKSample/HealthDataStep.swift; sourceTree = "<group>"; };
 		BC2A3CA41C58E91E00DA64B7 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		BC2A3CDC1C58F1DB00DA64B7 /* ResearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D02C417B1DFC7DD600A7C1B9 /* tap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = tap.aif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		161479B71BD6CE8F0099A068 = {
 			isa = PBXGroup;
 			children = (
+				D02C417B1DFC7DD600A7C1B9 /* tap.aif */,
 				BC2A3CA81C58E92600DA64B7 /* Frameworks */,
 				161479C21BD6CE8F0099A068 /* ORKSample */,
 				161479C11BD6CE8F0099A068 /* Products */,
@@ -107,7 +110,7 @@
 		161479C11BD6CE8F0099A068 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				161479C01BD6CE8F0099A068 /* ORKSample.app */,
+				161479C01BD6CE8F0099A068 /* BiAffect.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,8 +189,8 @@
 		16BF5B671BE29676007C79C6 /* Activities */ = {
 			isa = PBXGroup;
 			children = (
-				16147A0E1BD83F700099A068 /* ActivityViewController.swift */,
-				165A7E651BD99DBA00B6D223 /* StudyTasks.swift */,
+				16147A0E1BD83F700099A068 /* TaskListViewController.swift */,
+				165A7E651BD99DBA00B6D223 /* TaskListRow.swift */,
 			);
 			name = Activities;
 			sourceTree = "<group>";
@@ -221,9 +224,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		161479BF1BD6CE8F0099A068 /* ORKSample */ = {
+		161479BF1BD6CE8F0099A068 /* BiAffect */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 161479D21BD6CE8F0099A068 /* Build configuration list for PBXNativeTarget "ORKSample" */;
+			buildConfigurationList = 161479D21BD6CE8F0099A068 /* Build configuration list for PBXNativeTarget "BiAffect" */;
 			buildPhases = (
 				161479BC1BD6CE8F0099A068 /* Sources */,
 				161479BD1BD6CE8F0099A068 /* Frameworks */,
@@ -234,9 +237,9 @@
 			);
 			dependencies = (
 			);
-			name = ORKSample;
+			name = BiAffect;
 			productName = ResearchHealth;
-			productReference = 161479C01BD6CE8F0099A068 /* ORKSample.app */;
+			productReference = 161479C01BD6CE8F0099A068 /* BiAffect.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -251,7 +254,7 @@
 				TargetAttributes = {
 					161479BF1BD6CE8F0099A068 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 3FS7DJDG38;
+						DevelopmentTeam = LVH8BH4M73;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -261,7 +264,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 161479BB1BD6CE8F0099A068 /* Build configuration list for PBXProject "ORKSample" */;
+			buildConfigurationList = 161479BB1BD6CE8F0099A068 /* Build configuration list for PBXProject "BiAffect" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -274,7 +277,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				161479BF1BD6CE8F0099A068 /* ORKSample */,
+				161479BF1BD6CE8F0099A068 /* BiAffect */,
 			);
 		};
 /* End PBXProject section */
@@ -286,6 +289,7 @@
 			files = (
 				161479CE1BD6CE8F0099A068 /* LaunchScreen.storyboard in Resources */,
 				161479CB1BD6CE8F0099A068 /* Assets.xcassets in Resources */,
+				D02C417C1DFC7DD600A7C1B9 /* tap.aif in Resources */,
 				161479C91BD6CE8F0099A068 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,7 +304,7 @@
 				B5D35FC91BEA48D3004CBB06 /* HKHealthStore+Queries.swift in Sources */,
 				B5BC85FD1BF1408500B0CFA5 /* HealthDataStepViewController.swift in Sources */,
 				B5C366B41BE7ADBA0036112D /* DashboardTableViewController.swift in Sources */,
-				165A7E661BD99DBA00B6D223 /* StudyTasks.swift in Sources */,
+				165A7E661BD99DBA00B6D223 /* TaskListRow.swift in Sources */,
 				B5FA92E91BF13D98001E46C0 /* HealthDataStep.swift in Sources */,
 				B5D1175E1BE8D17E00D7F153 /* LineGraphDataSource.swift in Sources */,
 				16BF5B691BE2974A007C79C6 /* ProfileViewController.swift in Sources */,
@@ -312,7 +316,7 @@
 				B5D1175C1BE8D15400D7F153 /* DiscreteGraphDataSource.swift in Sources */,
 				86CCDFF61C1B50970042AA39 /* ResearchContainerViewController.swift in Sources */,
 				B5C207501BECCB1A0051D9D8 /* AnimatableChart.swift in Sources */,
-				16147A0F1BD83F700099A068 /* ActivityViewController.swift in Sources */,
+				16147A0F1BD83F700099A068 /* TaskListViewController.swift in Sources */,
 				16BF5B6F1BE2BE77007C79C6 /* HealthClientType.swift in Sources */,
 				B5D35FC71BEA363F004CBB06 /* ProfileHeaderView.swift in Sources */,
 				161479C41BD6CE8F0099A068 /* AppDelegate.swift in Sources */,
@@ -439,10 +443,10 @@
 				CODE_SIGN_ENTITLEMENTS = ORKSample/ORKSample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3FS7DJDG38;
+				DEVELOPMENT_TEAM = LVH8BH4M73;
 				INFOPLIST_FILE = "$(SRCROOT)/ORKSample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rabien.apple-samplecode.Sample";
+				PRODUCT_BUNDLE_IDENTIFIER = com.faraz.biaffect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
@@ -456,10 +460,10 @@
 				CODE_SIGN_ENTITLEMENTS = ORKSample/ORKSample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3FS7DJDG38;
+				DEVELOPMENT_TEAM = LVH8BH4M73;
 				INFOPLIST_FILE = "$(SRCROOT)/ORKSample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rabien.apple-samplecode.Sample";
+				PRODUCT_BUNDLE_IDENTIFIER = com.faraz.biaffect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -470,7 +474,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		161479BB1BD6CE8F0099A068 /* Build configuration list for PBXProject "ORKSample" */ = {
+		161479BB1BD6CE8F0099A068 /* Build configuration list for PBXProject "BiAffect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				161479D01BD6CE8F0099A068 /* Debug */,
@@ -479,7 +483,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		161479D21BD6CE8F0099A068 /* Build configuration list for PBXNativeTarget "ORKSample" */ = {
+		161479D21BD6CE8F0099A068 /* Build configuration list for PBXNativeTarget "BiAffect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				161479D31BD6CE8F0099A068 /* Debug */,

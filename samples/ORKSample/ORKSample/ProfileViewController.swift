@@ -50,7 +50,7 @@ class ProfileViewController: UITableViewController, HealthClientType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let healthStore = healthStore else { fatalError("healhStore not set") }
+        guard let healthStore = healthStore else { return }
         
         // Ensure the table view automatically sizes its rows.
         tableView.estimatedRowHeight = tableView.rowHeight
@@ -106,7 +106,7 @@ class ProfileViewController: UITableViewController, HealthClientType {
     
     func configureCellWithDateOfBirth(_ cell: ProfileStaticTableViewCell) {
         // Set the default cell content.
-        cell.titleLabel.text = NSLocalizedString("Date of Birth", comment: "")
+        cell.titleLabel.text = NSLocalizedString("Age", comment: "")
         cell.valueLabel.text = NSLocalizedString("-", comment: "")
 
         // Update the value label with the date of birth from the health store.
