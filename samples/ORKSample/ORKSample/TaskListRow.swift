@@ -123,7 +123,7 @@ enum TaskListRow: Int, CustomStringConvertible {
             return NSLocalizedString("Spatial Span Memory", comment: "")
             
         case .trailMaking:
-            return NSLocalizedString("Trail Making", comment: "")
+            return NSLocalizedString("Trail Making Test", comment: "")
         }
     }
     
@@ -797,7 +797,7 @@ enum TaskListRow: Int, CustomStringConvertible {
         /// An example of a custom sound.
         let successSoundURL = Bundle.main.url(forResource:"tap", withExtension: "aif")!
         let successSound = SystemSound(soundURL: successSoundURL)!
-        return ORKOrderedTask.reactionTime(withIdentifier: String(describing:Identifier.reactionTime), intendedUseDescription: exampleDescription, maximumStimulusInterval: 10, minimumStimulusInterval: 4, thresholdAcceleration: 0.5, numberOfAttempts: 3, timeout: 3, successSound: successSound.soundID, timeoutSound: 0, failureSound: UInt32(kSystemSoundID_Vibrate), options: [])
+        return ORKOrderedTask.reactionTime(withIdentifier: String(describing:Identifier.reactionTime), intendedUseDescription: exampleDescription, maximumStimulusInterval: 10, minimumStimulusInterval: 4, thresholdAcceleration: 0.5, numberOfAttempts: 6, timeout: 3, successSound: successSound.soundID, timeoutSound: 0, failureSound: UInt32(kSystemSoundID_Vibrate), options: [])
     }
     
     /// This task presents the Spatial Span Memory pre-defined active task.
@@ -807,7 +807,7 @@ enum TaskListRow: Int, CustomStringConvertible {
     
     /// This task presents a trail making task
     private var trailMaking: ORKTask {
-        let intendedUseDescription = "Tests visual attention and task switching"
+        let intendedUseDescription = ""
         return ORKOrderedTask.trailmakingTask(withIdentifier: String(describing: Identifier.trailMaking), intendedUseDescription: intendedUseDescription, trailmakingInstruction: nil, trailType:"B", options: [])
     }
     

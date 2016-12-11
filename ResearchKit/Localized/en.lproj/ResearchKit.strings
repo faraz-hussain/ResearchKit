@@ -318,10 +318,10 @@
 /* Reaction time active task. */
 "REACTION_TIME_TASK_TITLE" = "Reaction Time";
 "REACTION_TIME_TASK_INTENDED_USE" = "This activity evaluates the time it takes for you to respond to a visual cue.";
-"REACTION_TIME_TASK_INTRO_TEXT_FORMAT" = "Shake the device in any direction as soon as the blue dot appears on screen. You will be asked to do this %D times.";
+"REACTION_TIME_TASK_INTRO_TEXT_FORMAT" = "Shake the device in any direction as soon as the blue dot appears on screen, but do not shake it if the dot is green. You will be asked to do this %D times.";
 "REACTION_TIME_TASK_CALL_TO_ACTION" = "Tap Get Started to begin.";
 "REACTION_TIME_TASK_ATTEMPTS_FORMAT" = "Attempt %@ of %@";
-"REACTION_TIME_TASK_ACTIVE_STEP_TITLE" = "Quickly shake the device when the blue circle appears";
+"REACTION_TIME_TASK_ACTIVE_STEP_TITLE" = "Quickly shake the device only when the blue circle, and not the green one, appears";
 
 /* Tower of Hanoi active task */
 "TOWER_OF_HANOI_TASK_TITLE" = "Tower of Hanoi";
@@ -444,9 +444,9 @@
 "TREMOR_SKIP_NEITHER" = "I can perform this activity with both hands.";
 
 /* Trail making task. */
-"TRAILMAKING_TASK_TITLE" = "Trail Making Activity";
-"TRAILMAKING_INTENDED_USE" = "This activity evaluates your visual attention by recording the time required to connect a series of dots.";
-"TRAILMAKING_INTRO_TEXT" = "After the countdown, tap each dot in order";
+"TRAILMAKING_TASK_TITLE" = "Trail Making Test";
+"TRAILMAKING_INTENDED_USE" = "This activity evaluates your visual attention and task switching by recording the time required to connect a series of dots.";
+"TRAILMAKING_INTRO_TEXT" = "After the countdown, tap dots in alternating order between numbers and letters. Begin by tapping the first number '1' followed by tapping the first letter 'A', and then 2 – B – 3 – C… until you reach the end. \n \n Do this as quickly as you can without making mistakes. \n ";
 "TRAILMAKING_CALL_TO_ACTION" = "Tap Get Started to begin.";
 
 /* Potentially user visible error messages. */

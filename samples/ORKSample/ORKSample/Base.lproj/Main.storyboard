@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2XQ-Fv-Vxw">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -20,14 +20,14 @@
                         <viewControllerLayoutGuide type="bottom" id="Qv0-m5-4f0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Hsx-DA-8Wi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XLZ-px-HWW">
                                 <rect key="frame" x="61" y="278" width="253" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="A study on understanding mood and cognition in bipolar disorder" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Cq-B7-CTh">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" text="A study on understanding mood and cognition in bipolar disorder" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Cq-B7-CTh">
                                         <rect key="frame" x="0.0" y="0.0" width="253" height="71"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -44,6 +44,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="0Cq-B7-CTh" firstAttribute="top" secondItem="chY-4f-xgp" secondAttribute="bottom" constant="47.5" id="U1B-wx-Bxp"/>
                             <constraint firstItem="chY-4f-xgp" firstAttribute="centerX" secondItem="Hsx-DA-8Wi" secondAttribute="centerX" id="d4t-81-wTs"/>
                             <constraint firstItem="0Cq-B7-CTh" firstAttribute="centerX" secondItem="Hsx-DA-8Wi" secondAttribute="centerX" id="fiA-Au-liJ"/>
                         </constraints>
@@ -62,7 +63,7 @@
                         <viewControllerLayoutGuide type="bottom" id="N5G-qz-0p9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GnE-93-A2k">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="About this study" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKg-72-nnr">
@@ -72,11 +73,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zoL-pI-a2T">
-                                <rect key="frame" x="38" y="155" width="298" height="470"/>
+                                <rect key="frame" x="38" y="111" width="243" height="508"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XyD-9y-Kbq">
-                                        <rect key="frame" x="0.0" y="0.0" width="298" height="470"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="243" height="508"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <string key="text">The purpose of this study is to investigate mobile-device based diagnostic tools to continuously but unobtrusively track and predict mood episodes in bipolar disorder. One of the main symptoms of bipolar disorder, aside from problematic mood symptoms, is alterations in communication (e.g., speech in terms of both its content and dynamics). During mania, speech often increases in rate, rhythm, and volume with an associated increase in psychomotor activity and impulsive behaviors. During depression, the opposite occurs. The purpose of this study is thus to uncover similar changes in non-verbal speech/communication that may happen before a mood episode using advanced machine learning.
 
@@ -99,7 +100,7 @@ Indeed, typing or “texting” now serves as the primary form of non-verbal spe
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1X8-6F-Qoz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1893" y="-1086"/>
+            <point key="canvasLocation" x="1891.875" y="-1086.9718309859154"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="OIL-py-O2u">
@@ -110,15 +111,21 @@ Indeed, typing or “texting” now serves as the primary form of non-verbal spe
                         <viewControllerLayoutGuide type="bottom" id="hyt-iq-Wpm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Gao-iE-2cv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="How This Study Works" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFx-TI-9Nc">
+                                <rect key="frame" x="0.0" y="28" width="399" height="58"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bbK-ob-YLU">
-                                <rect key="frame" x="38" y="213" width="299" height="393"/>
+                                <rect key="frame" x="38" y="149" width="244" height="219"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EhC-sB-WnR">
-                                        <rect key="frame" x="0.0" y="0.0" width="299" height="393"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhC-sB-WnR">
+                                        <rect key="frame" x="0.0" y="0.0" width="244" height="219"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <attributedString key="attributedText">
                                             <fragment>
@@ -126,7 +133,7 @@ Indeed, typing or “texting” now serves as the primary form of non-verbal spe
 
 </string>
                                                 <attributes>
-                                                    <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
                                                     <real key="NSKern" value="0.0"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                     <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -135,7 +142,7 @@ Indeed, typing or “texting” now serves as the primary form of non-verbal spe
                                             <fragment>
                                                 <string key="content">	1.	</string>
                                                 <attributes>
-                                                    <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" firstLineHeadIndent="-0.050000000000000711" headIndent="29.449999999999999" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                         <tabStops>
                                                             <textTab alignment="left" location="1">
@@ -186,7 +193,7 @@ Indeed, typing or “texting” now serves as the primary form of non-verbal spe
                                                 <string key="content">Register an Account
 </string>
                                                 <attributes>
-                                                    <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
                                                     <real key="NSKern" value="0.0"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" firstLineHeadIndent="-0.050000000000000711" headIndent="29.449999999999999" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                         <tabStops>
@@ -237,7 +244,7 @@ Indeed, typing or “texting” now serves as the primary form of non-verbal spe
                                             <fragment>
                                                 <string key="content">	2.	</string>
                                                 <attributes>
-                                                    <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" firstLineHeadIndent="-0.050000000000000711" headIndent="29.449999999999999" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                         <tabStops>
                                                             <textTab alignment="left" location="1">
@@ -288,7 +295,7 @@ Indeed, typing or “texting” now serves as the primary form of non-verbal spe
                                                 <string key="content">Complete Health Surveys
 </string>
                                                 <attributes>
-                                                    <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
                                                     <real key="NSKern" value="0.0"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" firstLineHeadIndent="-0.050000000000000711" headIndent="29.449999999999999" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                         <tabStops>
@@ -339,7 +346,7 @@ Indeed, typing or “texting” now serves as the primary form of non-verbal spe
                                             <fragment>
                                                 <string key="content">	3.	</string>
                                                 <attributes>
-                                                    <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" firstLineHeadIndent="-0.050000000000000711" headIndent="29.449999999999999" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                         <tabStops>
                                                             <textTab alignment="left" location="1">
@@ -390,7 +397,7 @@ Indeed, typing or “texting” now serves as the primary form of non-verbal spe
                                                 <string key="content">Complete other Tasks
 </string>
                                                 <attributes>
-                                                    <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
                                                     <real key="NSKern" value="0.0"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" firstLineHeadIndent="-0.050000000000000711" headIndent="29.449999999999999" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                         <tabStops>
@@ -442,7 +449,7 @@ Indeed, typing or “texting” now serves as the primary form of non-verbal spe
                                                 <string key="content">
 This study is designed for persons over 18 years old with or without bipolar disorder.</string>
                                                 <attributes>
-                                                    <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
                                                     <real key="NSKern" value="0.0"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                     <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -453,36 +460,29 @@ This study is designed for persons over 18 years old with or without bipolar dis
                                     </textView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="How This Study Works" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFx-TI-9Nc">
-                                <rect key="frame" x="0.0" y="28" width="399" height="58"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="EhC-sB-WnR" secondAttribute="trailing" constant="22" id="5KP-Mh-Ypm"/>
                             <constraint firstItem="XFx-TI-9Nc" firstAttribute="centerX" secondItem="Gao-iE-2cv" secondAttribute="centerX" id="NLm-2h-FYP"/>
                             <constraint firstItem="EhC-sB-WnR" firstAttribute="leading" secondItem="Gao-iE-2cv" secondAttribute="leadingMargin" constant="22" id="kwt-nm-22s"/>
-                            <constraint firstItem="EhC-sB-WnR" firstAttribute="top" secondItem="XFx-TI-9Nc" secondAttribute="bottom" constant="127" id="uqs-kw-FtP"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A5L-Ot-TV9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1893" y="-423"/>
+            <point key="canvasLocation" x="1891.875" y="-423.59154929577466"/>
         </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="joinViewController" id="BYZ-38-t0r" customClass="OnboardingViewController" customModule="ORKSample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="joinViewController" id="BYZ-38-t0r" customClass="OnboardingViewController" customModule="BiAffect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8U-z7-eE9">
@@ -529,7 +529,7 @@ This study is designed for persons over 18 years old with or without bipolar dis
         <!--Introduction View Controller-->
         <scene sceneID="nNl-Be-RZr">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Pi4-gj-BRZ" customClass="IntroductionViewController" customModule="ORKSample" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Pi4-gj-BRZ" customClass="IntroductionViewController" customModule="BiAffect" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NJo-0E-OTa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1145" y="-1086.5"/>
@@ -537,19 +537,19 @@ This study is designed for persons over 18 years old with or without bipolar dis
         <!--Dashboard-->
         <scene sceneID="brc-di-7T4">
             <objects>
-                <tableViewController id="dm3-ta-z1g" customClass="DashboardTableViewController" customModule="ORKSample" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="dm3-ta-z1g" customClass="DashboardTableViewController" customModule="BiAffect" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="250" sectionHeaderHeight="28" sectionFooterHeight="28" id="8fu-tb-LZ5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection id="1uy-FM-LGx">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="K2L-vk-gKF">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K2L-vk-gKF" id="0Dp-FW-HuO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="249"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="249.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ca-ST-8kM">
@@ -608,10 +608,10 @@ This study is designed for persons over 18 years old with or without bipolar dis
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="vTB-NN-xTk">
-                                        <rect key="frame" x="0.0" y="250" width="375" height="250"/>
+                                        <rect key="frame" x="0.0" y="250" width="320" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vTB-NN-xTk" id="8dP-RM-ggQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="249"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="249.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGO-PC-vmw">
@@ -663,10 +663,10 @@ This study is designed for persons over 18 years old with or without bipolar dis
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="246" id="fL8-5U-pqW">
-                                        <rect key="frame" x="0.0" y="500" width="375" height="246"/>
+                                        <rect key="frame" x="0.0" y="500" width="320" height="246"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fL8-5U-pqW" id="2BC-Os-c4j">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="245"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="245.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7Q-cJ-bOn">
@@ -739,10 +739,10 @@ This study is designed for persons over 18 years old with or without bipolar dis
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="219" id="LYn-b5-1mH">
-                                        <rect key="frame" x="0.0" y="746" width="375" height="219"/>
+                                        <rect key="frame" x="0.0" y="746" width="320" height="219"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LYn-b5-1mH" id="a2t-35-TQL">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="218"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="218.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jJy-S1-amw" customClass="ORKLineGraphChartView">
@@ -798,10 +798,10 @@ This study is designed for persons over 18 years old with or without bipolar dis
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="XVk-UR-2nl">
-                                        <rect key="frame" x="0.0" y="965" width="375" height="250"/>
+                                        <rect key="frame" x="0.0" y="965" width="320" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XVk-UR-2nl" id="gpp-mc-92r">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="249"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="249.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fa3-DK-Kr9" customClass="ORKLineGraphChartView">
@@ -861,10 +861,10 @@ This study is designed for persons over 18 years old with or without bipolar dis
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="pt1-tB-G2q">
-                                        <rect key="frame" x="0.0" y="1215" width="375" height="250"/>
+                                        <rect key="frame" x="0.0" y="1215" width="320" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pt1-tB-G2q" id="Gtn-Bs-Ag3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="249"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="249.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFU-7a-3i5">
@@ -948,22 +948,21 @@ This study is designed for persons over 18 years old with or without bipolar dis
         <!--Activities-->
         <scene sceneID="Sdb-gs-9i7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DPL-bT-I91" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController title="Activities" id="sOb-We-vhw" customClass="TaskListViewController" customModule="ORKSample" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Activities" id="sOb-We-vhw" customClass="TaskListViewController" customModule="BiAffect" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="glS-0o-KB1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Default" textLabel="Fea-5E-IOC" style="IBUITableViewCellStyleDefault" id="oQx-Aa-Ciy">
-                                <rect key="frame" x="0.0" y="22" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oQx-Aa-Ciy" id="669-KE-2fg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Table view cell title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fea-5E-IOC">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -981,26 +980,27 @@ This study is designed for persons over 18 years old with or without bipolar dis
                     </tableView>
                     <navigationItem key="navigationItem" title="Activities" id="3aS-3h-m3O"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DPL-bT-I91" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="375" y="1338"/>
         </scene>
         <!--Profile-->
         <scene sceneID="y6w-Lq-1h9">
             <objects>
-                <tableViewController id="qxp-fi-jKy" customClass="ProfileViewController" customModule="ORKSample" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="qxp-fi-jKy" customClass="ProfileViewController" customModule="BiAffect" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="49" sectionHeaderHeight="28" sectionFooterHeight="28" id="uZ9-Yj-GUH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="oQO-XA-pUa" customClass="ProfileHeaderView" customModule="ORKSample" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="64" width="375" height="164"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="oQO-XA-pUa" customClass="ProfileHeaderView" customModule="BiAffect" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="64" width="320" height="164"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dpF-Nr-dqH">
-                                    <rect key="frame" x="10" y="98" width="194" height="50"/>
+                                    <rect key="frame" x="10" y="98" width="178" height="50"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" ambiguous="YES" text="Currently Participating In " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="RGp-Fz-mzq">
-                                            <rect key="frame" x="0.0" y="0.0" width="194" height="19.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="178" height="19.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" red="0.63418561220169067" green="0.63418561220169067" blue="0.63418561220169067" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1054,11 +1054,11 @@ This study is designed for persons over 18 years old with or without bipolar dis
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileStaticTableViewCell" id="l1j-hP-NgK" customClass="ProfileStaticTableViewCell" customModule="ORKSample" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="192" width="375" height="49"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileStaticTableViewCell" id="l1j-hP-NgK" customClass="ProfileStaticTableViewCell" customModule="BiAffect" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="192" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l1j-hP-NgK" id="gSL-84-VI9">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="48.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" misplaced="YES" text="add weight (lbs.)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1WS-QE-f8O">
@@ -1114,19 +1114,19 @@ This study is designed for persons over 18 years old with or without bipolar dis
         <!--Research Container View Controller-->
         <scene sceneID="uQZ-jk-mfU">
             <objects>
-                <viewController id="2XQ-Fv-Vxw" customClass="ResearchContainerViewController" customModule="ORKSample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2XQ-Fv-Vxw" customClass="ResearchContainerViewController" customModule="BiAffect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ukC-Mm-XiJ"/>
                         <viewControllerLayoutGuide type="bottom" id="aJF-qy-c78"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kx0-zF-Ik7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="custom" identifier="toOnboarding" customClass="ResearchContainerSegue" customModule="ORKSample" customModuleProvider="target" id="Ne6-uq-sBm"/>
-                        <segue destination="jSF-SP-Kcv" kind="custom" identifier="toStudy" customClass="ResearchContainerSegue" customModule="ORKSample" customModuleProvider="target" id="SXY-af-KKd"/>
+                        <segue destination="BYZ-38-t0r" kind="custom" identifier="toOnboarding" customClass="ResearchContainerSegue" customModule="BiAffect" customModuleProvider="target" id="Ne6-uq-sBm"/>
+                        <segue destination="jSF-SP-Kcv" kind="custom" identifier="toStudy" customClass="ResearchContainerSegue" customModule="BiAffect" customModuleProvider="target" id="SXY-af-KKd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GRu-oN-bYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
