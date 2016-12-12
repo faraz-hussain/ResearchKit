@@ -82,14 +82,17 @@ enum TaskListRow: Int, CustomStringConvertible {
     /// Returns an array of all the task list row enum cases.
     static var sections: [ TaskListRowSection ] {
         return [
-            TaskListRowSection(title: "Begin here", rows:
+            TaskListRowSection(title: "One-time survey", rows:
                 [
                     .MDQ,
                     ]),
-            TaskListRowSection(title: "Surveys", rows:
+            TaskListRowSection(title: "Weekly surveys", rows:
                 [
                     .Altman,
                     .PHQ9,
+                    ]),
+            TaskListRowSection(title: "Daily surveys", rows:
+                [
                     .scaleQuestion,
                     ]),
             TaskListRowSection(title: "Active tasks", rows:
@@ -114,7 +117,7 @@ enum TaskListRow: Int, CustomStringConvertible {
             return NSLocalizedString("Patient Health Questionnaire-9", comment: "")
             
         case .scaleQuestion:
-            return NSLocalizedString("Self-Rating Scales", comment: "")
+            return NSLocalizedString("Quick Daily Rating", comment: "")
             
         case .ReactionTime:
             return NSLocalizedString("Go/No-Go Visual Reaction Time", comment: "")
@@ -212,47 +215,38 @@ enum TaskListRow: Int, CustomStringConvertible {
     /// This task presents two options for questions displaying a scale control.
     private var scaleQuestionTask: ORKTask {
         // Energy rating
-        let step1AnswerFormat = ORKAnswerFormat.scale(withMaximumValue: 10, minimumValue: 1, defaultValue: NSIntegerMax, step: 1, vertical: false, maximumValueDescription: exampleHighValueText, minimumValueDescription: exampleLowValueText)
+        let step1AnswerFormat = ORKAnswerFormat.scale(withMaximumValue: 10, minimumValue: 0, defaultValue: NSIntegerMax, step: 1, vertical: false, maximumValueDescription: exampleHighValueText, minimumValueDescription: exampleLowValueText)
         
         let questionStep1 = ORKQuestionStep(identifier: String(describing:Identifier.discreteScaleQuestionStep1), title: energyQuestionText, answer: step1AnswerFormat)
         
         questionStep1.text = exampleDetailText
         
         // Mood rating
-        let step2AnswerFormat = ORKAnswerFormat.scale(withMaximumValue: 10, minimumValue: 1, defaultValue: NSIntegerMax, step: 1, vertical: false, maximumValueDescription: exampleHighValueText, minimumValueDescription: exampleLowValueText)
+        let step2AnswerFormat = ORKAnswerFormat.scale(withMaximumValue: 10, minimumValue: 0, defaultValue: NSIntegerMax, step: 1, vertical: false, maximumValueDescription: exampleHighValueText, minimumValueDescription: exampleLowValueText)
         
         let questionStep2 = ORKQuestionStep(identifier: String(describing:Identifier.discreteScaleQuestionStep2), title: moodQuestionText, answer: step2AnswerFormat)
         
         questionStep2.text = exampleDetailText
         
         // Speed of thoughts
-        let step3AnswerFormat = ORKAnswerFormat.scale(withMaximumValue: 10, minimumValue: 1, defaultValue: NSIntegerMax, step: 1, vertical: false, maximumValueDescription: speedHighValueText, minimumValueDescription: speedLowValueText)
+        let step3AnswerFormat = ORKAnswerFormat.scale(withMaximumValue: 10, minimumValue: 0, defaultValue: NSIntegerMax, step: 1, vertical: false, maximumValueDescription: speedHighValueText, minimumValueDescription: speedLowValueText)
         
         let questionStep3 = ORKQuestionStep(identifier: String(describing:Identifier.discreteScaleQuestionStep3), title: speedQuestionText, answer: step3AnswerFormat)
         
         questionStep3.text = exampleDetailText
         
         // Impulsiveness of thoughts
-        let step4AnswerFormat = ORKAnswerFormat.scale(withMaximumValue: 10, minimumValue: 1, defaultValue: NSIntegerMax, step: 1, vertical: false, maximumValueDescription: impulsivenessHighValueText, minimumValueDescription: impulsivenessLowValueText)
+        let step4AnswerFormat = ORKAnswerFormat.scale(withMaximumValue: 10, minimumValue: 0, defaultValue: NSIntegerMax, step: 1, vertical: false, maximumValueDescription: impulsivenessHighValueText, minimumValueDescription: impulsivenessLowValueText)
         
         let questionStep4 = ORKQuestionStep(identifier: String(describing:Identifier.discreteScaleQuestionStep4), title: impulsivenessthoughtsQuestionText, answer: step4AnswerFormat)
         
         questionStep4.text = exampleDetailText
         
-        // Impulsiveness of actions
-        
-        let step5AnswerFormat = ORKAnswerFormat.scale(withMaximumValue: 10, minimumValue: 1, defaultValue: NSIntegerMax, step: 1, vertical: false, maximumValueDescription: impulsivenessHighValueText, minimumValueDescription: impulsivenessLowValueText)
-        
-        let questionStep5 = ORKQuestionStep(identifier: String(describing:Identifier.discreteScaleQuestionStep5), title: impulsivenessactionsQuestionText, answer: step5AnswerFormat)
-        
-        questionStep5.text = exampleDetailText
-        
         return ORKOrderedTask(identifier: String(describing:Identifier.scaleQuestionTask), steps: [
             questionStep1,
             questionStep2,
             questionStep3,
-            questionStep4,
-            questionStep5
+            questionStep4
             ])
     }
     
@@ -453,7 +447,9 @@ enum TaskListRow: Int, CustomStringConvertible {
         
         let answerFormat14 = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices14)
         
-        let questionStep14 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep14), title: exampleQuestionTextb1, answer: answerFormat14)
+        let questionStep14 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep14), title: exampleQuestionTextb, answer: answerFormat14)
+        
+        questionStep14.text = exampleDetailText14b
         
         let textChoiceOneText15 = NSLocalizedString("No Problem", comment: "")
         let textChoiceTwoText15 = NSLocalizedString("Minor Problem", comment: "")
@@ -469,7 +465,9 @@ enum TaskListRow: Int, CustomStringConvertible {
         
         let answerFormat15 = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices15)
         
-        let questionStep15 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep15), title: exampleQuestionTextb2, answer: answerFormat15)
+        let questionStep15 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep15), title: exampleQuestionTextb, answer: answerFormat15)
+        
+        questionStep15.text = exampleDetailText15b
         
         let textChoiceOneText16 = NSLocalizedString("Yes", comment: "")
         let textChoiceTwoText16 = NSLocalizedString("No", comment: "")
@@ -481,7 +479,9 @@ enum TaskListRow: Int, CustomStringConvertible {
         
         let answerFormat16 = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices16)
         
-        let questionStep16 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep16), title: exampleQuestionTextb3, answer: answerFormat16)
+        let questionStep16 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep16), title: exampleQuestionTextb, answer: answerFormat16)
+        
+        questionStep16.text = exampleDetailText16b
         
         let textChoiceOneText17 = NSLocalizedString("Yes", comment: "")
         let textChoiceTwoText17 = NSLocalizedString("No", comment: "")
@@ -493,7 +493,9 @@ enum TaskListRow: Int, CustomStringConvertible {
         
         let answerFormat17 = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices17)
         
-        let questionStep17 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep17), title: exampleQuestionTextb4, answer: answerFormat17)
+        let questionStep17 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep17), title: exampleQuestionTextb, answer: answerFormat17)
+        
+        questionStep17.text = exampleDetailText17b
         
         return ORKOrderedTask(identifier: String(describing:Identifier.MDQTask), steps: [questionStep1, questionStep2, questionStep3, questionStep4, questionStep5, questionStep6, questionStep7, questionStep8, questionStep9, questionStep10, questionStep11, questionStep12, questionStep13, questionStep14, questionStep15, questionStep16, questionStep17])
     }
@@ -643,7 +645,7 @@ enum TaskListRow: Int, CustomStringConvertible {
         
         let answerFormat2 = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices2)
         
-        let questionStep2 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep2), title: exampleQuestionText2a, answer: answerFormat2)
+        let questionStep2 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep2), title: exampleQuestionText1a, answer: answerFormat2)
         
         questionStep2.text = exampleDetailText2a
         
@@ -661,7 +663,7 @@ enum TaskListRow: Int, CustomStringConvertible {
         
         let answerFormat3 = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices3)
         
-        let questionStep3 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep3), title: exampleQuestionText3a, answer: answerFormat3)
+        let questionStep3 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep3), title: exampleQuestionText1a, answer: answerFormat3)
         
         questionStep3.text = exampleDetailText3a
         
@@ -679,7 +681,7 @@ enum TaskListRow: Int, CustomStringConvertible {
         
         let answerFormat4 = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices4)
         
-        let questionStep4 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep4), title: exampleQuestionText4a, answer: answerFormat4)
+        let questionStep4 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep4), title: exampleQuestionText1a, answer: answerFormat4)
         
         questionStep4.text = exampleDetailText4a
         
@@ -697,7 +699,7 @@ enum TaskListRow: Int, CustomStringConvertible {
         
         let answerFormat5 = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices5)
         
-        let questionStep5 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep5), title: exampleQuestionText5a, answer: answerFormat5)
+        let questionStep5 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep5), title: exampleQuestionText1a, answer: answerFormat5)
         
         questionStep5.text = exampleDetailText5a
         
@@ -715,7 +717,7 @@ enum TaskListRow: Int, CustomStringConvertible {
         
         let answerFormat6 = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices6)
         
-        let questionStep6 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep6), title: exampleQuestionText6a, answer: answerFormat6)
+        let questionStep6 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep6), title: exampleQuestionText1a, answer: answerFormat6)
         
         questionStep6.text = exampleDetailText6a
         
@@ -733,7 +735,7 @@ enum TaskListRow: Int, CustomStringConvertible {
         
         let answerFormat7 = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices7)
         
-        let questionStep7 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep7), title: exampleQuestionText7a, answer: answerFormat7)
+        let questionStep7 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep7), title: exampleQuestionText1a, answer: answerFormat7)
         
         questionStep7.text = exampleDetailText7a
         
@@ -751,7 +753,7 @@ enum TaskListRow: Int, CustomStringConvertible {
         
         let answerFormat8 = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices8)
         
-        let questionStep8 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep8), title: exampleQuestionText8a, answer: answerFormat8)
+        let questionStep8 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep8), title: exampleQuestionText1a, answer: answerFormat8)
         
         questionStep8.text = exampleDetailText8a
         
@@ -769,7 +771,7 @@ enum TaskListRow: Int, CustomStringConvertible {
         
         let answerFormat9 = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices9)
         
-        let questionStep9 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep9), title: exampleQuestionText9a, answer: answerFormat9)
+        let questionStep9 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep9), title: exampleQuestionText1a, answer: answerFormat9)
         
         questionStep9.text = exampleDetailText9a
         
@@ -787,8 +789,10 @@ enum TaskListRow: Int, CustomStringConvertible {
         
         let answerFormat10 = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices10)
         
-        let questionStep10 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep10), title: exampleQuestionText10a, answer: answerFormat10)
+        let questionStep10 = ORKQuestionStep(identifier: String(describing:Identifier.textChoiceQuestionStep10), title: exampleQuestionText1a, answer: answerFormat10)
         
+        questionStep10.text = exampleDetailText10a
+
         return ORKOrderedTask(identifier: String(describing:Identifier.PHQ9Task), steps: [questionStep1, questionStep2, questionStep3, questionStep4, questionStep5, questionStep6, questionStep7, questionStep8, questionStep9, questionStep10])
     }
     
@@ -826,22 +830,18 @@ enum TaskListRow: Int, CustomStringConvertible {
     }
     
     private var energyQuestionText: String {
-        return NSLocalizedString("On a scale of 1 to 10, please rate your energy level right now.", comment: "")
+        return NSLocalizedString("On a scale of 0 to 10, please rate your energy level right now.", comment: "")
     }
     private var moodQuestionText: String {
-        return NSLocalizedString("On a scale of 1 to 10, please rate your mood right now.", comment: "")
+        return NSLocalizedString("On a scale of 0 to 10, please rate your mood right now.", comment: "")
     }
     
     private var speedQuestionText: String {
-        return NSLocalizedString("On a scale of 1 to 10, how fast are your thoughts right now?", comment: "")
+        return NSLocalizedString("On a scale of 0 to 10, how fast are your thoughts right now?", comment: "")
     }
     
     private var impulsivenessthoughtsQuestionText: String {
-        return NSLocalizedString("On a scale of 1 to 10, how impulsive are your thoughts right now?", comment: "")
-    }
-    
-    private var impulsivenessactionsQuestionText: String {
-        return NSLocalizedString("On a scale of 1 to 10, how impulsive are your actions right now?", comment: "")
+        return NSLocalizedString("On a scale of 0 to 10, how impulsive are you feeling right now?", comment: "")
     }
     
     private var exampleQuestionText1: String {
@@ -865,66 +865,29 @@ enum TaskListRow: Int, CustomStringConvertible {
     }
     
     private var exampleQuestionTextb: String {
-        return NSLocalizedString("Has there ever been a period of time when you were not your usual self and...", comment: "")
+        return NSLocalizedString("", comment: "")
     }
     
-    private var exampleQuestionTextb4: String {
+    private var exampleDetailText17b: String {
         return NSLocalizedString("Has a health professional ever told you that you have manic-depressive illness or bipolar disorder?", comment: "")
     }
     
-    private var exampleQuestionTextb3: String {
+    private var exampleDetailText16b: String {
         return NSLocalizedString("Have any of your blood relatives (i.e. children, siblings, parents, grandparents, aunts, uncles) had manic-depressive illness or bipolar disorder?", comment: "")
     }
     
-    private var exampleQuestionTextb2: String {
+    private var exampleDetailText15b: String {
         return NSLocalizedString("How much of a problem did any of these cause you – like being unable to work; having family, money or legal troubles; getting into arguments or fights?", comment: "")
     }
     
-    private var exampleQuestionTextb1: String {
+    private var exampleDetailText14b: String {
         return NSLocalizedString("If you checked YES to more than one of the above, have several of these ever happened during the same period of time?", comment: "")
     }
     
     private var exampleQuestionText1a: String {
-        return NSLocalizedString("Over the last 2 weeks, how often have you been bothered by any of the following problems?", comment: "")
+        return NSLocalizedString("", comment: "")
     }
-    
-    private var exampleQuestionText2a: String {
-        return NSLocalizedString("Over the last 2 weeks, how often have you been bothered by any of the following problems?", comment: "")
-    }
-    
-    private var exampleQuestionText3a: String {
-        return NSLocalizedString("Over the last 2 weeks, how often have you been bothered by any of the following problems?", comment: "")
-    }
-    
-    private var exampleQuestionText4a: String {
-        return NSLocalizedString("Over the last 2 weeks, how often have you been bothered by any of the following problems?", comment: "")
-    }
-    
-    private var exampleQuestionText5a: String {
-        return NSLocalizedString("Over the last 2 weeks, how often have you been bothered by any of the following problems?", comment: "")
-    }
-    
-    private var exampleQuestionText6a: String {
-        return NSLocalizedString("Over the last 2 weeks, how often have you been bothered by any of the following problems?", comment: "")
-    }
-    
-    private var exampleQuestionText7a: String {
-        return NSLocalizedString("Over the last 2 weeks, how often have you been bothered by any of the following problems?", comment: "")
-    }
-    
-    private var exampleQuestionText8a: String {
-        return NSLocalizedString("Over the last 2 weeks, how often have you been bothered by any of the following problems?", comment: "")
-    }
-    
-    private var exampleQuestionText9a: String {
-        return NSLocalizedString("Over the last 2 weeks, how often have you been bothered by any of the following problems?", comment: "")
-    }
-    
-    private var exampleQuestionText10a: String {
-        return NSLocalizedString("If you checked off any problems, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?", comment: "")
-    }
-    
-    
+
     private var exampleHighValueText: String {
         return NSLocalizedString("Very high", comment: "")
     }
@@ -954,110 +917,95 @@ enum TaskListRow: Int, CustomStringConvertible {
     }
     
     private var exampleDetailText1b: String {
-        return NSLocalizedString("...you felt so good or so hyper that other people thought you were not your normal self, or you were so hyper that you got into trouble?", comment: "")
+        return NSLocalizedString("Has there ever been a period of time when you were not your usual self and... \n \n ...you felt so good or so hyper that other people thought you were not your normal self, or you were so hyper that you got into trouble?", comment: "")
     }
     
     private var exampleDetailText2b: String {
-        return NSLocalizedString("...you were so irritable that you shouted at people or started fights or arguments?", comment: "")
+        return NSLocalizedString("Has there ever been a period of time when you were not your usual self and... \n \n ...you were so irritable that you shouted at people or started fights or arguments?", comment: "")
     }
     
     private var exampleDetailText3b: String {
-        return NSLocalizedString("...you felt much more self-confident than usual?", comment: "")
+        return NSLocalizedString("Has there ever been a period of time when you were not your usual self and... \n \n ...you felt much more self-confident than usual?", comment: "")
     }
     
     private var exampleDetailText4b: String {
-        return NSLocalizedString("...you got much less sleep than usual and found you didn't really miss it?", comment: "")
+        return NSLocalizedString("Has there ever been a period of time when you were not your usual self and... \n \n ...you got much less sleep than usual and found you didn't really miss it?", comment: "")
     }
     
     private var exampleDetailText5b: String {
-        return NSLocalizedString("...you were much more talkative or spoke faster than usual?", comment: "")
+        return NSLocalizedString("Has there ever been a period of time when you were not your usual self and... \n \n ...you were much more talkative or spoke faster than usual?", comment: "")
     }
     
     private var exampleDetailText6b: String {
-        return NSLocalizedString("...thoughts raced through your head or you couldn't slow your mind down?", comment: "")
+        return NSLocalizedString("Has there ever been a period of time when you were not your usual self and... \n \n ...thoughts raced through your head or you couldn't slow your mind down?", comment: "")
     }
     
     private var exampleDetailText7b: String {
-        return NSLocalizedString("...you were so easily distracted by things around you that you had trouble concentrating or staying on track?", comment: "")
+        return NSLocalizedString("Has there ever been a period of time when you were not your usual self and... \n \n ...you were so easily distracted by things around you that you had trouble concentrating or staying on track?", comment: "")
     }
     
     private var exampleDetailText8b: String {
-        return NSLocalizedString("...you had much more energy than usual?", comment: "")
+        return NSLocalizedString("Has there ever been a period of time when you were not your usual self and... \n \n ...you had much more energy than usual?", comment: "")
     }
     
     private var exampleDetailText9b: String {
-        return NSLocalizedString("...you were much more active or did many more things than usual?", comment: "")
+        return NSLocalizedString("Has there ever been a period of time when you were not your usual self and... \n \n ...you were much more active or did many more things than usual?", comment: "")
     }
     
     private var exampleDetailText10b: String {
-        return NSLocalizedString("...you were much more social or outgoing than usual; for example, you telephoned friends in the middle of the night?", comment: "")
+        return NSLocalizedString("Has there ever been a period of time when you were not your usual self and... \n \n ...you were much more social or outgoing than usual; for example, you telephoned friends in the middle of the night?", comment: "")
     }
     
     private var exampleDetailText11b: String {
-        return NSLocalizedString("...you were much more interested in sex than usual?", comment: "")
+        return NSLocalizedString("Has there ever been a period of time when you were not your usual self and... \n \n ...you were much more interested in sex than usual?", comment: "")
     }
     
     private var exampleDetailText12b: String {
-        return NSLocalizedString("...you did things that were unusual for you or that other people might have thought were excessive, foolish, or risky?", comment: "")
+        return NSLocalizedString("Has there ever been a period of time when you were not your usual self and... \n \n ...you did things that were unusual for you or that other people might have thought were excessive, foolish, or risky?", comment: "")
     }
     
     private var exampleDetailText13b: String {
-        return NSLocalizedString("...spending money got you or your family into trouble?", comment: "")
+        return NSLocalizedString("Has there ever been a period of time when you were not your usual self and... \n \n ...spending money got you or your family into trouble?", comment: "")
     }
     
     private var exampleDetailText1a: String {
-        return NSLocalizedString("Little interest or pleasure in doing things", comment: "")
+        return NSLocalizedString("Over the last 2 weeks, how often have you been bothered by any of the following problems? \n \n Little interest or pleasure in doing things", comment: "")
     }
     
     private var exampleDetailText2a: String {
-        return NSLocalizedString("Feeling down, depressed, or hopeless", comment: "")
+        return NSLocalizedString("Over the last 2 weeks, how often have you been bothered by any of the following problems? \n \n Feeling down, depressed, or hopeless", comment: "")
     }
     
     private var exampleDetailText3a: String {
-        return NSLocalizedString("Trouble falling or staying asleep, or sleeping too much", comment: "")
+        return NSLocalizedString("Over the last 2 weeks, how often have you been bothered by any of the following problems? \n \n Trouble falling or staying asleep, or sleeping too much", comment: "")
     }
     
     private var exampleDetailText4a: String {
-        return NSLocalizedString("Feeling tired or having little energy", comment: "")
+        return NSLocalizedString("Over the last 2 weeks, how often have you been bothered by any of the following problems? \n \n Feeling tired or having little energy", comment: "")
     }
     
     private var exampleDetailText5a: String {
-        return NSLocalizedString("Poor appetite or overeating", comment: "")
+        return NSLocalizedString("Over the last 2 weeks, how often have you been bothered by any of the following problems? \n \n Poor appetite or overeating", comment: "")
     }
     
     private var exampleDetailText6a: String {
-        return NSLocalizedString("Feeling bad about yourself—or that you are a failure or have let yourself or your family down", comment: "")
+        return NSLocalizedString("Over the last 2 weeks, how often have you been bothered by any of the following problems? \n \n Feeling bad about yourself—or that you are a failure or have let yourself or your family down", comment: "")
     }
     
     private var exampleDetailText7a: String {
-        return NSLocalizedString("Trouble concentrating on things, such as reading the newspaper or watching television", comment: "")
+        return NSLocalizedString("Over the last 2 weeks, how often have you been bothered by any of the following problems? \n \n Trouble concentrating on things, such as reading the newspaper or watching television", comment: "")
     }
     
     private var exampleDetailText8a: String {
-        return NSLocalizedString("Moving or speaking so slowly that other people could have noticed? Or the opposite—being so fidgety or restless that you have been moving around a lot more than usual", comment: "")
+        return NSLocalizedString("Over the last 2 weeks, how often have you been bothered by any of the following problems? \n \n Moving or speaking so slowly that other people could have noticed? Or the opposite—being so fidgety or restless that you have been moving around a lot more than usual", comment: "")
     }
     
     private var exampleDetailText9a: String {
-        return NSLocalizedString("Thoughts that you would be better off dead or of hurting yourself in some way", comment: "")
+        return NSLocalizedString("Over the last 2 weeks, how often have you been bothered by any of the following problems? \n \n Thoughts that you would be better off dead or of hurting yourself in some way", comment: "")
     }
-    
-    private var exampleEmailText: String {
-        return NSLocalizedString("jappleseed@example.com", comment: "")
+
+    private var exampleDetailText10a: String {
+        return NSLocalizedString("If you checked off any problems, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?", comment: "")
     }
-    
-    private var loremIpsumText: String {
-        return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    }
-    
-    private var loremIpsumShortText: String {
-        return "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    }
-    
-    private var loremIpsumMediumText: String {
-        return "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam adhuc, meo fortasse vitio, quid ego quaeram non perspicis. Plane idem, inquit, et maxima quidem, qua fieri nulla maior potest. Quonam, inquit, modo?"
-    }
-    
-    private var loremIpsumLongText: String {
-        return "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam adhuc, meo fortasse vitio, quid ego quaeram non perspicis. Plane idem, inquit, et maxima quidem, qua fieri nulla maior potest. Quonam, inquit, modo? An potest, inquit ille, quicquam esse suavius quam nihil dolere? Cave putes quicquam esse verius. Quonam, inquit, modo?"
-    }
+
 }
