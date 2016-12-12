@@ -321,7 +321,7 @@
 "REACTION_TIME_TASK_INTRO_TEXT_FORMAT" = "Shake the device in any direction as soon as the blue dot appears on screen, but do not shake it if the dot is green. You will be asked to do this %D times.";
 "REACTION_TIME_TASK_CALL_TO_ACTION" = "Tap Get Started to begin.";
 "REACTION_TIME_TASK_ATTEMPTS_FORMAT" = "Attempt %@ of %@";
-"REACTION_TIME_TASK_ACTIVE_STEP_TITLE" = "Quickly shake the device only when the blue circle, and not the green one, appears";
+"REACTION_TIME_TASK_ACTIVE_STEP_TITLE" = "Quickly shake the device only when the blue circle, but not the green one, appears";
 
 /* Tower of Hanoi active task */
 "TOWER_OF_HANOI_TASK_TITLE" = "Tower of Hanoi";
