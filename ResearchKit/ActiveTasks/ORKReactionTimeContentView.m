@@ -37,12 +37,27 @@
 
 @implementation ORKReactionTimeContentView {
     ORKReactionTimeStimulusView *_stimulusView;
+    //NSUInteger _colorIndex;
+    UIColor* _stimulusColor;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         self.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        //[self addStimulusView];
+    }
+    return self;
+}
+
+- (instancetype)initWithColor:(UIColor*)color {
+    self = [super init];
+    if (self) {
+        self.translatesAutoresizingMaskIntoConstraints = NO;
+        _stimulusColor = color;
+        //[self changeColor];
+        
         [self addStimulusView];
     }
     return self;
@@ -59,6 +74,8 @@
 - (void)resetAfterDelay:(NSTimeInterval)delay completion:(nullable void (^)(void))completion {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         _stimulusView.hidden = YES;
+        [_stimulusView setColor:self->_stimulusColor];
+        
         if (completion) {
             completion();
         }
@@ -67,9 +84,9 @@
 
 - (void)addStimulusView {
     if (!_stimulusView) {
-        _stimulusView = [ORKReactionTimeStimulusView new];
+        _stimulusView = [[ORKReactionTimeStimulusView alloc] initWithBackgroundColor:self->_stimulusColor];
         _stimulusView.translatesAutoresizingMaskIntoConstraints = NO;
-        _stimulusView.backgroundColor = self.tintColor;
+        _stimulusView.backgroundColor = self->_stimulusColor;
         [self addSubview:_stimulusView];
         [self setUpStimulusViewConstraints];
     }
@@ -78,6 +95,7 @@
 - (void)setStimulusHidden:(BOOL)hidden {
     _stimulusView.hidden = hidden;
 }
+
 
 - (void)setUpStimulusViewConstraints {
     NSMutableArray *constraints = [NSMutableArray array];
@@ -105,5 +123,14 @@
     
     [NSLayoutConstraint activateConstraints:constraints];
 }
+
+
+- (void)changeColor:(UIColor*)color {
+    self->_stimulusColor = color;
+}
+//
+//- (UIColor*)currentColor {
+//    return _stimulusColors[_colorIndex];
+//}
 
 @end

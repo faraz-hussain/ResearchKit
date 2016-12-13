@@ -257,7 +257,7 @@ enum TaskListRow: Int, CustomStringConvertible {
             return NSLocalizedString("PSAT", comment: "")
             
         case .reactionTime:
-            return NSLocalizedString("Reaction Time", comment: "")
+            return NSLocalizedString("Go/No-Go Visual Reaction Time", comment: "")
             
         case .shortWalk:
             return NSLocalizedString("Short Walk", comment: "")
@@ -1260,12 +1260,12 @@ enum TaskListRow: Int, CustomStringConvertible {
         return ORKOrderedTask.psatTask(withIdentifier: String(describing:Identifier.psatTask), intendedUseDescription: exampleDescription, presentationMode: ORKPSATPresentationMode.auditory.union(.visual), interStimulusInterval: 3.0, stimulusDuration: 1.0, seriesLength: 60, options: [])
     }
     
-    /// This task presents the Reaction Time pre-defined active task.
+    /// This task presents the Go/No-Go Visual Reaction Time pre-defined active task.
     private var reactionTimeTask: ORKTask {
         /// An example of a custom sound.
         let successSoundURL = Bundle.main.url(forResource:"tap", withExtension: "aif")!
         let successSound = SystemSound(soundURL: successSoundURL)!
-        return ORKOrderedTask.reactionTime(withIdentifier: String(describing:Identifier.reactionTime), intendedUseDescription: exampleDescription, maximumStimulusInterval: 10, minimumStimulusInterval: 4, thresholdAcceleration: 0.5, numberOfAttempts: 3, timeout: 3, successSound: successSound.soundID, timeoutSound: 0, failureSound: UInt32(kSystemSoundID_Vibrate), options: [])
+        return ORKOrderedTask.reactionTime(withIdentifier: String(describing:Identifier.reactionTime), intendedUseDescription: exampleDescription, maximumStimulusInterval: 10, minimumStimulusInterval: 4, thresholdAcceleration: 0.5, numberOfAttempts: 6, timeout: 3, successSound: successSound.soundID, timeoutSound: 0, failureSound: UInt32(kSystemSoundID_Vibrate), options: [])
     }
     
     /// This task presents the Gait and Balance pre-defined active task.

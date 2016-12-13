@@ -47,6 +47,7 @@
 
 @implementation ORKReactionTimeViewController {
     ORKReactionTimeContentView *_reactionTimeContentView;
+    
     NSMutableArray *_results;
     NSTimer *_stimulusTimer;
     NSTimer *_timeoutTimer;
@@ -54,6 +55,7 @@
     BOOL _validResult;
     BOOL _timedOut;
     BOOL _shouldIndicateFailure;
+    BOOL go;
 }
 
 static const NSTimeInterval OutcomeAnimationDuration = 0.3;
@@ -65,7 +67,11 @@ static const NSTimeInterval OutcomeAnimationDuration = 0.3;
     // Do any additional setup after loading the view.
     [self configureTitle];
     _results = [NSMutableArray new];
-    _reactionTimeContentView = [ORKReactionTimeContentView new];
+    go = true;
+    UIColor* color = self.view.tintColor;
+    //NSArray<UIColor*>* colors = @[self.view.tintColor, UIColor.greenColor];
+    _reactionTimeContentView = [[ORKReactionTimeContentView alloc] initWithColor:color];
+    
     self.activeStepView.activeCustomView = _reactionTimeContentView;
     self.activeStepView.stepViewFillsAvailableSpace = YES;
     [_reactionTimeContentView setStimulusHidden:YES];
@@ -87,20 +93,16 @@ static const NSTimeInterval OutcomeAnimationDuration = 0.3;
 - (void)start {
     [super start];
     [self startStimulusTimer];
-
+    
 }
 
 #if TARGET_IPHONE_SIMULATOR
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
     if (event.type == UIEventSubtypeMotionShake) {
-        if (_validResult) {
-            ORKReactionTimeResult *reactionTimeResult = [[ORKReactionTimeResult alloc] initWithIdentifier:self.step.identifier];
-            reactionTimeResult.timestamp = _stimulusTimestamp;
-            [_results addObject:reactionTimeResult];
-        }
         [self attemptDidFinish];
     }
 }
+
 #endif
 
 
@@ -164,11 +166,21 @@ static const NSTimeInterval OutcomeAnimationDuration = 0.3;
             [self resetAfterDelay:2];
         }
     };
-    if (_validResult) {
-        [self indicateSuccess:completion];
-    } else {
-        [self indicateFailure:completion];
+    if(go) {
+        if (_validResult) {
+            [self indicateSuccess:completion];
+        } else {
+            [self indicateFailure:completion];
+        }
     }
+    else {
+        if (_validResult) {
+            [self indicateFailure:completion];
+        } else {
+            [self indicateSuccess:completion];
+        }
+    }
+    
     _validResult = NO;
     _timedOut = NO;
     [_stimulusTimer invalidate];
@@ -176,6 +188,10 @@ static const NSTimeInterval OutcomeAnimationDuration = 0.3;
 }
 
 - (void)indicateSuccess:(void(^)(void))completion {
+    ORKReactionTimeResult *reactionTimeResult = [[ORKReactionTimeResult alloc] initWithIdentifier:self.step.identifier];
+    reactionTimeResult.timestamp = _stimulusTimestamp;
+    [_results addObject:reactionTimeResult];
+    
     [_reactionTimeContentView startSuccessAnimationWithDuration:OutcomeAnimationDuration completion:completion];
     AudioServicesPlaySystemSound([self reactionTimeStep].successSound);
 }
@@ -191,6 +207,9 @@ static const NSTimeInterval OutcomeAnimationDuration = 0.3;
 
 - (void)resetAfterDelay:(NSTimeInterval)delay {
     ORKWeakTypeOf(self) weakSelf = self;
+    
+    go = ((float)rand() / RAND_MAX) < 0.667;
+    [_reactionTimeContentView changeColor:go ? self.view.tintColor : UIColor.greenColor];
     [_reactionTimeContentView resetAfterDelay:delay completion:^{
         [weakSelf configureTitle];
         [weakSelf start];

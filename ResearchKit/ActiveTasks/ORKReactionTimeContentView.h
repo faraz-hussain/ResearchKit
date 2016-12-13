@@ -37,6 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ORKReactionTimeContentView : ORKActiveStepCustomView
 
+- (instancetype)initWithColor:(UIColor*)color;
+
 - (void)setStimulusHidden:(BOOL)hidden;
 
 - (void)startSuccessAnimationWithDuration:(NSTimeInterval)duration completion:(nullable void (^)(void))completion;
@@ -44,6 +46,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)startFailureAnimationWithDuration:(NSTimeInterval)duration completion:(nullable void (^)(void))completion;
 
 - (void)resetAfterDelay:(NSTimeInterval)delay completion:(nullable void (^)(void))completion;
+
+
+- (void)changeColor:(UIColor*)color;
+
+- (BOOL) go;
+
+- (UIColor*)currentColor;
 
 @end
 
