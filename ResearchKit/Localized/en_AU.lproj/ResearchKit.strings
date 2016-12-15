@@ -311,7 +311,7 @@
 "MEMORY_GAME_PAUSED_MESSAGE" = "To continue, tap Next";
 
 /* Reaction time active task. */
-"REACTION_TIME_TASK_TITLE" = "Reaction Time";
+"REACTION_TIME_TASK_TITLE" = "Go/No-Go Visual Reaction Time";
 "REACTION_TIME_TASK_INTENDED_USE" = "This activity evaluates the time it takes for you to respond to a visual cue.";
 "REACTION_TIME_TASK_INTRO_TEXT_FORMAT" = "Shake the device in any direction as soon as the blue dot appears on screen, but do not shake it if the dot is green. You will be asked to do this %D times.";
 "REACTION_TIME_TASK_CALL_TO_ACTION" = "Tap Get Started to begin.";

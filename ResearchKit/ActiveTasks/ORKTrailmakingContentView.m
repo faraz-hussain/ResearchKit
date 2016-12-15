@@ -169,4 +169,16 @@
     return _testView.bounds;
 }
 
+- (void)setError:(int)buttonIdex {
+    ORKRoundTappingButton* button = [_tapButtons objectAtIndex:buttonIdex];
+    [button setTintColor:[UIColor redColor]];
+}
+
+- (void)clearErrors {
+    for (ORKRoundTappingButton* button in _tapButtons) {
+        [button setTintColor:self.tintColor];
+    }
+}
+
+
 @end

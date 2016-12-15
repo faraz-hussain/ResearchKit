@@ -127,12 +127,12 @@ static const NSTimeInterval OutcomeAnimationDuration = 0.3;
 #pragma mark - ORKRecorderDelegate
 
 - (void)recorder:(ORKRecorder *)recorder didCompleteWithResult:(ORKResult *)result {
-    if (_validResult) {
-        ORKReactionTimeResult *reactionTimeResult = [[ORKReactionTimeResult alloc] initWithIdentifier:self.step.identifier];
-        reactionTimeResult.timestamp = _stimulusTimestamp;
-        reactionTimeResult.fileResult = (ORKFileResult *)result;
-        [_results addObject:reactionTimeResult];
-    }
+//    if (_validResult) {
+//        ORKReactionTimeResult *reactionTimeResult = [[ORKReactionTimeResult alloc] initWithIdentifier:self.step.identifier];
+//        reactionTimeResult.timestamp = _stimulusTimestamp;
+//        reactionTimeResult.fileResult = (ORKFileResult *)result;
+//        [_results addObject:reactionTimeResult];
+//    }
     [self attemptDidFinish];
 }
 
