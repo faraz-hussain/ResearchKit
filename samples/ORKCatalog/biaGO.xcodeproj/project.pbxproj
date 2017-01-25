@@ -87,7 +87,7 @@
 		3ED967B91AC13D37007E2D83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		863CCD811ACF545E009FD3B4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		863CCD831ACF545E009FD3B4 /* ORKCatalog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ORKCatalog.entitlements; sourceTree = "<group>"; };
-		869230BE1AAA890A00BFE11B /* ORKCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ORKCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		869230BE1AAA890A00BFE11B /* biaGO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = biaGO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86B89A981AB2C0A5001626A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86B89A9C1AB2C0A5001626A4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ORKCatalog/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		B125E3D31B1BA47600FF8759 /* tap.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = tap.aif; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		869230BF1AAA890A00BFE11B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				869230BE1AAA890A00BFE11B /* ORKCatalog.app */,
+				869230BE1AAA890A00BFE11B /* biaGO.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -210,9 +210,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		869230BD1AAA890A00BFE11B /* ORKCatalog */ = {
+		869230BD1AAA890A00BFE11B /* biaGO */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 869230DF1AAA890A00BFE11B /* Build configuration list for PBXNativeTarget "ORKCatalog" */;
+			buildConfigurationList = 869230DF1AAA890A00BFE11B /* Build configuration list for PBXNativeTarget "biaGO" */;
 			buildPhases = (
 				869230BA1AAA890A00BFE11B /* Sources */,
 				869230BB1AAA890A00BFE11B /* Frameworks */,
@@ -223,9 +223,9 @@
 			);
 			dependencies = (
 			);
-			name = ORKCatalog;
+			name = biaGO;
 			productName = Consent.swift;
-			productReference = 869230BE1AAA890A00BFE11B /* ORKCatalog.app */;
+			productReference = 869230BE1AAA890A00BFE11B /* biaGO.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -240,13 +240,13 @@
 				TargetAttributes = {
 					869230BD1AAA890A00BFE11B = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 7JYUG8QGJ3;
+						DevelopmentTeam = LVH8BH4M73;
 						DevelopmentTeamName = "Apple Inc. - SPG-NGS";
 						LastSwiftMigration = 0800;
 					};
 				};
 			};
-			buildConfigurationList = 869230B91AAA890A00BFE11B /* Build configuration list for PBXProject "ORKCatalog" */;
+			buildConfigurationList = 869230B91AAA890A00BFE11B /* Build configuration list for PBXProject "biaGO" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -296,7 +296,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				869230BD1AAA890A00BFE11B /* ORKCatalog */,
+				869230BD1AAA890A00BFE11B /* biaGO */,
 			);
 		};
 /* End PBXProject section */
@@ -493,12 +493,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ORKCatalog/Supporting Files/ORKCatalog.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = LVH8BH4M73;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/ORKCatalog/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.researchkit-samplecode.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = ORKCatalog;
+				PRODUCT_BUNDLE_IDENTIFIER = com.faraz.biaGO;
+				PRODUCT_NAME = biaGO;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -510,12 +511,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ORKCatalog/Supporting Files/ORKCatalog.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = LVH8BH4M73;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/ORKCatalog/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.researchkit-samplecode.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = ORKCatalog;
+				PRODUCT_BUNDLE_IDENTIFIER = com.faraz.biaGO;
+				PRODUCT_NAME = biaGO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -525,7 +527,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		869230B91AAA890A00BFE11B /* Build configuration list for PBXProject "ORKCatalog" */ = {
+		869230B91AAA890A00BFE11B /* Build configuration list for PBXProject "biaGO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				869230DD1AAA890A00BFE11B /* Debug */,
@@ -534,7 +536,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		869230DF1AAA890A00BFE11B /* Build configuration list for PBXNativeTarget "ORKCatalog" */ = {
+		869230DF1AAA890A00BFE11B /* Build configuration list for PBXNativeTarget "biaGO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				869230E01AAA890A00BFE11B /* Debug */,

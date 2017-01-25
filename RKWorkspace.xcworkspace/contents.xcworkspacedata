@@ -8,7 +8,7 @@
       location = "group:Testing/ORKTest/ORKTest.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:samples/ORKCatalog/ORKCatalog.xcodeproj">
+      location = "group:/Users/faraz/Repos/biaGO/ResearchKit/samples/ORKCatalog/biaGO.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:samples/ORKSample/ORKSample.xcodeproj">
