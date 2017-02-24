@@ -130,7 +130,7 @@ static const NSTimeInterval OutcomeAnimationDuration = 0.3;
 
 - (ORKStepResult *)result {
     ORKStepResult *stepResult = [super result];
-    [stepResult.results arrayByAddingObjectsFromArray: _results];
+    stepResult.results = stepResult.results ? [stepResult.results arrayByAddingObjectsFromArray:_results] : _results;
     return stepResult;
 }
 
@@ -260,7 +260,8 @@ static const NSTimeInterval OutcomeAnimationDuration = 0.3;
         }
     }
     
-    ORKGoNoGoResult *gonogoResult = [[ORKGoNoGoResult alloc] initWithIdentifier:self.step.identifier];
+    NSString *uniqueStep = [NSString stringWithFormat:@"%@.%@", self.step.identifier, [[NSUUID UUID] UUIDString]];
+    ORKGoNoGoResult *gonogoResult = [[ORKGoNoGoResult alloc] initWithIdentifier:uniqueStep];
     gonogoResult.timestamp = _stimulusTimestamp;
     gonogoResult.samples = [samples copy];
     gonogoResult.timeToThreshold = now - _stimulusTimestamp;
@@ -284,8 +285,7 @@ static const NSTimeInterval OutcomeAnimationDuration = 0.3;
         BOOL res = [[tests firstObject] boolValue];
         [tests removeObjectAtIndex:0];
         return res;
-    }
-    else {
+    } else {
         return ((float)arc4random_uniform(RAND_MAX) / RAND_MAX) < 0.667;
     }
 }
