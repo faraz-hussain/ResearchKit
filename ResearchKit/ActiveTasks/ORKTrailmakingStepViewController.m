@@ -46,6 +46,7 @@
 #import "ORKHelpers_Internal.h"
 #import "ORKStepViewController_Internal.h"
 
+
 #define BOUND(lo, hi, v) (((v) < (lo)) ? (lo) : (((v) > (hi)) ? (hi) : (v)))
 
 @interface ORKTrailmakingStepViewController ()
@@ -59,7 +60,9 @@
     NSString *trailType;
     int nextIndex;
     int errors;
-    NSMutableArray* taps;
+    NSMutableArray *taps;
+    NSTimer *updateTimer;
+    UILabel *timerLabel;
 }
 
 - (instancetype)initWithStep:(ORKStep *)step {
@@ -95,14 +98,45 @@
     for (ORKRoundTappingButton* b in _trailmakingContentView.tapButtons) {
         [b addTarget:self action:@selector(buttonPressed:forEvent:) forControlEvents:UIControlEventTouchDown];
     }
+    
+    timerLabel = [[UILabel alloc] init];
+    timerLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [self.view addSubview:timerLabel];
 }
 
-- (void)viewWillLayoutSubviews
-{
+- (void)timerUpdated:(NSTimer*)timer {
+    NSTimeInterval elapsed = [[NSDate date] timeIntervalSinceDate: self.presentedDate];
+    NSString *text = [NSString localizedStringWithFormat:ORKLocalizedString(@"TRAILMAKING_TIMER", nil), elapsed];
+    
+    if (errors == 1) {
+        text = [NSString localizedStringWithFormat:ORKLocalizedString(@"TRAILMAKING_ERROR", nil), text, errors];
+    } else if (errors > 1) {
+        text = [NSString localizedStringWithFormat:ORKLocalizedString(@"TRAILMAKING_ERROR_PLURAL", nil), text, errors];
+    }
+    
+    timerLabel.text = text;
+}
+
+- (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
-    const int cx = 50;
-    const int cy = 50;
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    int screenSize = MAX(screenRect.size.width, screenRect.size.height);
+    
+    int cx;
+    
+    if (screenSize >= 736) {
+        cx = 50;  // iPhone 6+/7+
+    } else if (screenSize >= 667) {
+        cx = 45; // iPhone 6/7
+    } else {
+        cx = 40;  // iPhone 5/SE
+    }
+    
+    CGRect labelRect = _trailmakingContentView.testArea;
+    labelRect.size.height = 20;
+    [timerLabel setFrame:labelRect];
     
     CGRect r = _trailmakingContentView.testArea;
         
@@ -119,10 +153,9 @@
         }
         
         const int x = BOUND(5, r.size.width - cx - 5, pp.x * r.size.width);
-        const int y = BOUND(5, r.size.height - cy - 5, pp.y * r.size.height);
+        const int y = BOUND(5, r.size.height - cx - 5, pp.y * r.size.height);
         
-        
-        b.frame = CGRectMake(x, y, cx, cy);
+        b.frame = CGRectMake(x, y, cx, cx);
         b.diameter = cx;
         
         idx++;
@@ -132,11 +165,21 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self start];
+    updateTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timerUpdated:) userInfo:nil repeats:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    if (updateTimer != nil) {
+        [updateTimer invalidate];
+        updateTimer = nil;
+    }
 }
 
 - (IBAction)buttonPressed:(id)button forEvent:(UIEvent *)event {
     NSUInteger buttonIndex = [_trailmakingContentView.tapButtons indexOfObject:button];
-    if (buttonIndex >= 0) {
+    if (buttonIndex != NSNotFound) {
         
         ORKTrailmakingTap* tap = [[ORKTrailmakingTap alloc] init];
         tap.timestamp = [[NSDate date] timeIntervalSinceDate: self.presentedDate];
@@ -147,17 +190,19 @@
             
             _trailmakingContentView.linesToDraw = nextIndex - 1;
             if (nextIndex == _trailmakingContentView.tapButtons.count) {
-                [self finish];
+                [self performSelector:@selector(finish) withObject:nil afterDelay:1.5];
+                [updateTimer invalidate];
+                updateTimer = nil;
             }
-            tap.error = NO;
+            tap.incorrect = NO;
             
             [_trailmakingContentView clearErrors];
         } else {
             errors++;
-            tap.error = YES;
+            tap.incorrect = YES;
             
             [_trailmakingContentView clearErrors];
-            [_trailmakingContentView setError:buttonIndex];
+            [_trailmakingContentView setError:(int)buttonIndex];
         }
         [taps addObject:tap];
     }
@@ -186,8 +231,7 @@
   return testData;
 }
 
-- (NSArray*)fetchRandomTest
-{
+- (NSArray*)fetchRandomTest {
     const int testNum = arc4random_uniform((uint32_t)[[self testData] count]);
     const bool invertX = arc4random_uniform(2) == 1;
     const bool invertY = arc4random_uniform(2) == 1;
