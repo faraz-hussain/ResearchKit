@@ -57,6 +57,7 @@
     BOOL _timedOut;
     BOOL _shouldIndicateFailure;
     BOOL _testActive;
+    BOOL _testEnded;
     NSMutableArray<NSNumber*>* tests;
     BOOL go;
 }
@@ -111,13 +112,16 @@ static const NSTimeInterval OutcomeAnimationDuration = 0.3;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self start];
-    _shouldIndicateFailure = YES;
-    _testActive = YES;
+    if (!_testEnded) {
+        [self start];
+        _shouldIndicateFailure = YES;
+        _testActive = YES;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    _testEnded = YES;
     _shouldIndicateFailure = NO;
     _testActive = NO;
     
@@ -168,8 +172,10 @@ static const NSTimeInterval OutcomeAnimationDuration = 0.3;
 
 - (void)applicationDidBecomeActive:(NSNotification *)notification {
     [super applicationDidBecomeActive:notification];
-    _testActive = YES;
-    [self resetAfterDelay:0];
+    if (!_testEnded) {
+        _testActive = YES;
+        [self resetAfterDelay:0];
+    }
 }
 
 #pragma mark - ORKRecorderDelegate
@@ -245,6 +251,7 @@ static const NSTimeInterval OutcomeAnimationDuration = 0.3;
         }
         
         if (successCount == [self gonogoTimeStep].numberOfAttempts) {
+            _testEnded = YES;
             [self finish];
         } else {
             // If the user cancels the test, there may be animations active,
