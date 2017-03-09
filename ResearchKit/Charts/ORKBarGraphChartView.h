@@ -31,25 +31,25 @@
 
 
 @import UIKit;
-#import <ResearchKit/ORKGraphChartView.h>
+#import <ResearchKit/ORKGraphChartView1.h>
 
 
 /**
  The `ORKBarGraphChartView` class presents the data provided by an object conforming to the
- `ORKValueStackGraphChartViewDataSource` protocol as a bar graph.
+ `ORKValueStackGraphChartView1DataSource` protocol as a bar graph.
  
  By default, the primary plot is colored by the `tintColor`, and any additional plots are colored
  using the `referenceLineColor` property. You can customize the plot colors by implementing the
  `-graphChartView:colorForPlotIndex:` method in the data source.
  */
 ORK_CLASS_AVAILABLE
-@interface ORKBarGraphChartView : ORKGraphChartView
+@interface ORKBarGraphChartView : ORKGraphChartView1
 
 /**
  The data source responsible for providing the data required to populate the graph chart view.
  
- See the `ORKValueStackGraphChartViewDataSource` protocol.
+ See the `ORKValueStackGraphChartView1DataSource` protocol.
  */
-@property (nonatomic, weak) id <ORKValueStackGraphChartViewDataSource> dataSource;
+@property (nonatomic, weak) id <ORKValueStackGraphChartView1DataSource> dataSource;
 
 @end

@@ -32,14 +32,14 @@
 
 #import "ORKBarGraphChartView.h"
 
-#import "ORKGraphChartView_Internal.h"
+#import "ORKGraphChartView1_Internal.h"
 
 #import "ORKHelpers_Internal.h"
 
 
 #if TARGET_INTERFACE_BUILDER
 
-@interface ORKIBBarGraphChartViewDataSource : ORKIBGraphChartViewDataSource <ORKValueStackGraphChartViewDataSource>
+@interface ORKIBBarGraphChartViewDataSource : ORKIBGraphChartViewDataSource <ORKValueStackGraphChartView1DataSource>
 
 + (instancetype)sharedInstance;
 
@@ -82,7 +82,7 @@
     return self;
 }
 
-- (ORKValueStack *)graphChartView:(ORKGraphChartView *)graphChartView dataPointForPointIndex:(NSInteger)pointIndex plotIndex:(NSInteger)plotIndex {
+- (ORKValueStack *)graphChartView1:(ORKGraphChartView *)graphChartView1 dataPointForPointIndex:(NSInteger)pointIndex plotIndex:(NSInteger)plotIndex {
     return self.plotPoints[plotIndex][pointIndex];
 }
 
@@ -111,7 +111,7 @@ static const CGFloat BarWidth = 10.0;
 #pragma mark - Draw
 
 - (ORKValueStack *)dataPointForPointIndex:(NSInteger)pointIndex plotIndex:(NSInteger)plotIndex {
-    return [self.dataSource graphChartView:self dataPointForPointIndex:pointIndex plotIndex:plotIndex];
+    return [self.dataSource graphChartView1:self dataPointForPointIndex:pointIndex plotIndex:plotIndex];
 }
 
 - (ORKValueStack *)dummyPoint {
